@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favicon Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #ddd;
+      margin: 20px 0;
+    }
+    .instructions {
+      max-width: 600px;
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>FaceDetect Favicon Generator</h1>
+  
+  <div class="instructions">
+    <h2>Instructions:</h2>
+    <ol>
+      <li>Below is a preview of the favicon with the new red and black color scheme</li>
+      <li>Right-click on the canvas and select "Save image as..."</li>
+      <li>Save it as "favicon.png" in the public folder</li>
+      <li>Use an online converter to convert the PNG to ICO format</li>
+      <li>Replace the current favicon.ico file in the public folder</li>
+    </ol>
+  </div>
+  
+  <canvas id="faviconCanvas" width="64" height="64"></canvas>
+  
+  <script>
+    // Get the canvas and its context
+    const canvas = document.getElementById('faviconCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    // Create gradient background
+    const gradient = ctx.createLinearGradient(0, 0, 64, 64);
+    gradient.addColorStop(0, '#ef4444');
+    gradient.addColorStop(1, '#b91c1c');
+    
+    // Draw rounded rectangle background
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.roundRect(2, 2, 60, 60, 12);
+    ctx.fill();
+    
+    // Draw face detection icon elements
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(32, 32, 18, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // Draw eyes
+    ctx.fillStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(24, 26, 3, 0, Math.PI * 2);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.arc(40, 26, 3, 0, Math.PI * 2);
+    ctx.fill();
+    
+    // Draw smile
+    ctx.beginPath();
+    ctx.arc(32, 40, 8, 0, Math.PI, false);
+    ctx.stroke();
+    
+    // Draw scanner lines
+    ctx.setLineDash([2, 2]);
+    ctx.beginPath();
+    ctx.moveTo(20, 20);
+    ctx.lineTo(44, 20);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(20, 44);
+    ctx.lineTo(44, 44);
+    ctx.stroke();
+  </script>
+</body>
+</html> 

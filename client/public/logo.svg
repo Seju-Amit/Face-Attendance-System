@@ -1,0 +1,33 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#b91c1c" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" />
+      <feOffset dx="0" dy="1" result="offsetblur" />
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.5" />
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Base shape -->
+  <rect x="2" y="2" width="60" height="60" rx="12" fill="url(#bgGradient)" filter="url(#shadow)" />
+  
+  <!-- Face detection representation -->
+  <circle cx="32" cy="32" r="18" stroke="white" stroke-width="2" fill="none" />
+  <circle cx="24" cy="26" r="3" fill="white" />
+  <circle cx="40" cy="26" r="3" fill="white" />
+  <path d="M24 40C24 40 28 44 32 44C36 44 40 40 40 40" stroke="white" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Scanner lines (animated in actual usage) -->
+  <line x1="20" y1="20" x2="44" y2="20" stroke="white" stroke-width="1" stroke-dasharray="2 2" />
+  <line x1="20" y1="44" x2="44" y2="44" stroke="white" stroke-width="1" stroke-dasharray="2 2" />
+</svg> 

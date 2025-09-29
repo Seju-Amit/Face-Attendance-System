@@ -26,4 +26,5 @@ export default defineConfig(({ mode }) => ({
       "@styles": path.resolve(__dirname, "./src/styles")
     },
   },
+  base: "/FAS",
 }));
